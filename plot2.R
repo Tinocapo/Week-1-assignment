@@ -3,7 +3,7 @@ dat <- fread("household_power_consumption.txt") #Read .txt
 dat <- subset(dat, Date == "1/2/2007" | Date == "2/2/2007") #Grab only those 2 days
 
 #Create column and merge together
-FullTimeDate <- strptime(paste(dat$Date, powerdata$Time, sep=" "),
+FullTimeDate <- strptime(paste(dat$Date, dat$Time, sep=" "),
                          "%d/%m/%Y %H:%M:%S")
 dat <- cbind(dat, FullTimeDate)
 
